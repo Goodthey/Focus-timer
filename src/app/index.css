@@ -1,3 +1,52 @@
 * {
-  color: red;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  /* Темная фиолетовая палитра */
+  --bg-primary: #0f0f1e; /* почти черный фон */
+  --bg-secondary: #1a1a2e; /* чуть светлее для карточек */
+  --bg-accent: #16213e; /* акцентный фон */
+
+  --purple-dark: #764ba2; /* темный фиолетовый */
+  --purple-light: #667eea; /* светлый фиолетовый */
+  --purple-glow: #9d7ff5; /* для эффектов свечения */
+
+  --text-primary: #e0e0e0; /* основной текст */
+  --text-secondary: #a0a0a0; /* второстепенный текст */
+  --text-accent: #ffd700; /* акцентный (золотой) */
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* Плавная градиентная подложка */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(102, 126, 234, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(118, 75, 162, 0.1) 0%,
+      transparent 50%
+    );
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
 }

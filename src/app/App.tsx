@@ -1,10 +1,13 @@
-import BoardPage from "@/features/board";
+import { Card } from "@/shared/ui/Card";
+import { Timer } from "@/features/timer";
 
 function App() {
   return (
     <>
       <div>
-        <BoardPage />
+        <Card>
+          <Timer />
+        </Card>
       </div>
     </>
   );
