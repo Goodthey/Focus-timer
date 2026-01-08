@@ -1,17 +1,10 @@
-import { Card } from "@/shared/ui/Card";
-import { Timer } from "@/features/timer";
-import { BreakTimer } from "@/features/break-timer";
+import { HomePage } from "@/features/home-page";
 
 function App() {
   return (
     <>
       <div>
-        <Card>
-          <Timer />
-        </Card>
-        <Card>
-          <BreakTimer />
-        </Card>
+        <HomePage />
       </div>
     </>
   );
