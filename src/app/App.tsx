@@ -1,5 +1,6 @@
 import { Card } from "@/shared/ui/Card";
 import { Timer } from "@/features/timer";
+import { BreakTimer } from "@/features/break-timer";
 
 function App() {
   return (
@@ -7,6 +8,9 @@ function App() {
       <div>
         <Card>
           <Timer />
+        </Card>
+        <Card>
+          <BreakTimer />
         </Card>
       </div>
     </>
