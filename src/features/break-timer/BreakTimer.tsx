@@ -4,6 +4,7 @@ import { Button } from "@/shared/ui/Button";
 
 export function BreakTimer() {
   const [totalSeconds, setTotalSeconds] = useState(900);
+  const [breakDuration, setBreakDuration] = useState(30);
   const [isRunning, setIsRunning] = useState(false);
 
   const hours = Math.floor(totalSeconds / 3600);
@@ -20,7 +21,19 @@ export function BreakTimer() {
 
   const handleReset = () => {
     setIsRunning(false);
-    setTotalSeconds(10);
+    setTotalSeconds(breakDuration * 60);
+  };
+
+  const handleIncrease = () => {
+    if (breakDuration < 45) {
+      setBreakDuration((prev) => prev + 5);
+    }
+  };
+
+  const handleDecrease = () => {
+    if (breakDuration > 5) {
+      setBreakDuration((prev) => prev - 5);
+    }
   };
 
   useEffect(() => {
@@ -38,6 +51,12 @@ export function BreakTimer() {
     }
   }, [isRunning]);
 
+  useEffect(() => {
+    if (!isRunning) {
+      setTotalSeconds(breakDuration * 60);
+    }
+  }, [breakDuration, isRunning]);
+
   return (
     <div className={styles.breakTimer}>
       <h2>Break Timer</h2>
@@ -46,10 +65,16 @@ export function BreakTimer() {
         <Button onClick={handleReset}>Закончить перерыв</Button>
       ) : (
         <Button onClick={isRunning ? handleReset : handleToggle}>
-          {!isRunning && totalSeconds === 900
+          {!isRunning && totalSeconds === breakDuration * 60
             ? "Начать перерыв"
             : "Закончить досрочно"}
         </Button>
+      )}
+      {!isRunning && totalSeconds === breakDuration * 60 && (
+        <div className={styles.controlButtons}>
+          <Button onClick={handleIncrease}>+ 5 мин</Button>
+          <Button onClick={handleDecrease}>- 5 мин</Button>
+        </div>
       )}
     </div>
   );
