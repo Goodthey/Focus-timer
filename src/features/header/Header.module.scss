@@ -1,0 +1,67 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+
+  a {
+    text-decoration: none !important;
+    color: inherit;
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .clockIcon {
+    width: 5rem;
+    height: 5rem;
+    transition: transform 0.3s;
+  }
+
+  &:hover .clockIcon {
+    transform: rotate(20deg);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .navList {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      &.active {
+        li {
+          color: var(--purple-light);
+        }
+      }
+    }
+  }
+
+  li {
+    cursor: pointer;
+    transition: color 0.3s;
+    padding-bottom: 4px;
+
+    &:hover {
+      color: var(--purple-light);
+    }
+  }
+}

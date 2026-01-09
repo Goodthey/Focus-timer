@@ -1,12 +1,45 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: 20px;
   min-height: 100vh;
+  justify-content: center;
   padding: 20px;
-  gap: 20px; // расстояние между карточками
-}
-.card {
-  flex: 1;
-  max-width: 400px;
+
+  .flipContainer {
+    perspective: 1000px;
+    width: 100%;
+    max-width: 600px; // максимальная ширина контейнера
+
+    .flipCard {
+      width: 100%; // НЕ фиксированная ширина!
+      min-height: 400px; // минимальная высота вместо фиксированной
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+
+      &.flipped {
+        transform: rotateY(180deg);
+      }
+
+      .flipCardFront,
+      .flipCardBack {
+        position: absolute;
+        width: 100%;
+        height: auto; // НЕ фиксированная высота!
+        min-height: 100%; // минимум на всю высоту родителя
+        backface-visibility: hidden;
+      }
+
+      .flipCardBack {
+        transform: rotateY(180deg);
+      }
+
+      .card {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="200" height="150">
+  <!-- Определение градиентов и теней -->
+  <defs>
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8e5bb8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="displayGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Тень от часов -->
+  <ellipse cx="100" cy="140" rx="60" ry="8" fill="#000" opacity="0.2"/>
+  
+  <!-- Корпус часов -->
+  <rect x="30" y="40" width="140" height="80" rx="8" fill="url(#bodyGradient)" stroke="#5a3d7a" stroke-width="2"/>
+  
+  <!-- Экран дисплея -->
+  <rect x="40" y="50" width="120" height="50" rx="4" fill="url(#displayGradient)" stroke="#0d0d0d" stroke-width="1"/>
+  
+  <!-- Цифры времени "00:00" с LED-эффектом -->
+  <g filter="url(#glow)">
+    <!-- Первый 0 -->
+    <path d="M 50 60 L 65 60 L 65 90 L 50 90 Z M 55 65 L 55 85 L 60 85 L 60 65 Z" fill="#00d4ff"/>
+    
+    <!-- Второй 0 -->
+    <path d="M 72 60 L 87 60 L 87 90 L 72 90 Z M 77 65 L 77 85 L 82 85 L 82 65 Z" fill="#00d4ff"/>
+    
+    <!-- Двоеточие -->
+    <circle cx="97" cy="70" r="2.5" fill="#00d4ff"/>
+    <circle cx="97" cy="82" r="2.5" fill="#00d4ff"/>
+    
+    <!-- Третий 0 -->
+    <path d="M 107 60 L 122 60 L 122 90 L 107 90 Z M 112 65 L 112 85 L 117 85 L 117 65 Z" fill="#00d4ff"/>
+    
+    <!-- Четвертый 0 -->
+    <path d="M 129 60 L 144 60 L 144 90 L 129 90 Z M 134 65 L 134 85 L 139 85 L 139 65 Z" fill="#00d4ff"/>
+  </g>
+  
+  <!-- Кнопки управления -->
+  <circle cx="45" cy="115" r="4" fill="#5a3d7a" stroke="#764ba2" stroke-width="1"/>
+  <circle cx="60" cy="115" r="4" fill="#5a3d7a" stroke="#764ba2" stroke-width="1"/>
+  <circle cx="140" cy="115" r="4" fill="#5a3d7a" stroke="#764ba2" stroke-width="1"/>
+  <circle cx="155" cy="115" r="4" fill="#5a3d7a" stroke="#764ba2" stroke-width="1"/>
+  
+  <!-- Подставка -->
+  <path d="M 80 120 L 120 120 L 115 135 L 85 135 Z" fill="url(#bodyGradient)" stroke="#5a3d7a" stroke-width="2"/>
+</svg>
